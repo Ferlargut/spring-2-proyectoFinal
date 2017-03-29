@@ -37,9 +37,9 @@ function crearPendientes() {
     var posicion=document.getElementById("espacio");
     crearPend.id="espacio";   
     
-    crearPend.id="pendienteDinamico"
+    crearPend.id="pendienteDinamico";
     lugar.appendChild(crearPend);
-    
+    crearPend.innerText=pendiente;
     
 
 
