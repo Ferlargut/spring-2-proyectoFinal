@@ -22,7 +22,6 @@ function crearLista() {
     boton.id="boton";
     titulo.innerHTML=elemento.titulo;
     boton.innerText=boton.name="Pendientes";
-    boton=document.getElementById("boton");
     boton.setAttribute("onClick", "crearPendientes();");
 
 
@@ -31,16 +30,18 @@ function crearLista() {
 }
 
 function crearPendientes() {
-    var lugar = document.getElementById("ponerListas");
+    var ul=document.getElementsByTagName("ul");
+    var indice =ul.length-1;
+    var lugar=ul[indice];
     var pendiente=document.getElementById("obtenerComentarios").value;
     var crearPend=document.createElement("li");
     var posicion=document.getElementById("espacio");
-    crearPend.id="espacio";   
-    
+     
+     
     crearPend.id="pendienteDinamico";
     lugar.appendChild(crearPend);
     crearPend.innerText=pendiente;
-    
+
 
 
     
