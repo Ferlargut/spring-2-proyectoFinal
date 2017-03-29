@@ -33,18 +33,23 @@ function crearPendientes() {
     var ul=document.getElementsByTagName("ul");
     var indice =ul.length-1;
     var lugar=ul[indice];
+    var li=document.getElementsByTagName("li");
+    var posicion=li.length
     var pendiente=document.getElementById("obtenerComentarios").value;
     var crearPend=document.createElement("li");
     var indexListas=listas.length-1;
+    var boton=document.createElement("button");
     
-     
+    
     listas[indexListas].pendiente=pendiente;
-    crearPend.id="pendienteDinamico";
+    crearPend.id=indice;
     lugar.appendChild(crearPend);
-    crearPend.innerText=pendiente;
-    
-
-
-
+    lugar.appendChild(boton);
+    crearPend.innerText=pendiente;   
+    boton.innerText=boton.name="X";
+    boton.setAttribute("onClick","borrarPendientes();");
     
 }
+
+
+
