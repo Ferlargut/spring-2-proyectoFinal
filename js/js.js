@@ -35,12 +35,14 @@ function crearPendientes() {
     var lugar=ul[indice];
     var pendiente=document.getElementById("obtenerComentarios").value;
     var crearPend=document.createElement("li");
-    var posicion=document.getElementById("espacio");
+    var indexListas=listas.length-1;
+    
      
-     
+    listas[indexListas].pendiente=pendiente;
     crearPend.id="pendienteDinamico";
     lugar.appendChild(crearPend);
     crearPend.innerText=pendiente;
+    
 
 
 
