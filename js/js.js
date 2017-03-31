@@ -1,28 +1,55 @@
-
-function Lista(titulo) {
-    this.titulo=titulo; 
-    this.pendiente="";   
-   
-}
  var listas=[];
-function crearLista() {
-    var lugar=document.getElementById("listas");
+function Lista(titulo,id) {
+    this.id=id;
+    this.titulo=titulo; 
+    this.pendiente=[];   
+    
+}
+function Pendientes(id,contenido){
+        this.pendiente=id;
+        this.contenido=contenido;
+    }
+function crearListas() {
+    var titulo=document.getElementById("listaNew");
+    var id = Date.now();
+    var lista= new Lista(titulo.value,id);
+
+    listas.push(lista);
+    estructuraHtmlLista(lista);
+        
+}
+
+
+
+function estructuraHtmlLista(lista) {
+    var seccion=document.createElement("section");
     var titulo=document.createElement("h2");
     var boton=document.createElement("button");
     var inputLista=document.createElement("input");
-    var lista=document.createElement("ul")
-    var elemento=new Lista(document.getElementById("listaNew").value);
-    listas.push(elemento);
-    lista.id="ponerListas";
-    inputLista.id="obtenerComentarios";      
-    lugar.appendChild(titulo);
-    lugar.appendChild(lista);
-    lugar.appendChild(inputLista);
-    lugar.appendChild(boton);
-    boton.id="boton";
-    titulo.innerHTML=elemento.titulo;
+    var estructuraDeUnaLista=document.createElement("ul");    
+    var lugar=document.getElementById("listas");  
+
+    lugar.appendChild(seccion);    
+    seccion.appendChild(titulo);
+    seccion.appendChild(estructuraDeUnaLista);
+    estructuraDeUnaLista.appendChild(inputLista);
+    estructuraDeUnaLista.appendChild(boton);
+    titulo.innerHTML=lista.titulo;
     boton.innerText=boton.name="Pendientes";
-    boton.setAttribute("onClick", "crearPendientes();");
+    boton.setAttribute("data-list-id", lista.id);
+    inputLista.id=lista.id;
+    //seccion.id=listas.id;
+    console.log(lista);
+    //var elemento=new Lista(document.getElementById("listaNew").value);
+    
+    //lista.id="ponerListas";
+    //inputLista.id="obtenerComentarios";  
+    listas.forEach(function (lista) {
+        lista.titulo
+        
+    })
+    
+    
 
 
 
@@ -30,6 +57,14 @@ function crearLista() {
 }
 
 function crearPendientes() {
+    
+    var id=date.now();
+    var contenido="";
+    var pendiente = new Pendientes(id,contenido);
+}
+/*
+
+function crearPendientesHtml() {
     var ul=document.getElementsByTagName("ul");
     var indice =ul.length-1;
     var lugar=ul[indice];
@@ -49,7 +84,7 @@ function crearPendientes() {
     boton.innerText=boton.name="X";
     boton.setAttribute("onClick","borrarPendientes();");
     
-}
+}*/
 
 
 
